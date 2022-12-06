@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="Wrapper">
+        <img src="nonut.png">
+        <div id="info">
+            <p>Minęło już</p>
+            <div id="procent"></div>
+            <p>No Nut November</p>
+        </div>
+        
+    </div>
+</body>
+</html>
+
+<script>
+    
+    const koniec = new Date('12/01/2022');
+    const poczatek = new Date('11/01/2022');
+    const miesiac = koniec - poczatek
+    const diw = document.getElementById("procent");
+    const data = new Date();
+    console.log(data.getMonth())
+    if (data.getMonth() == 10) {
+        setInterval(function() {
+        let czas = new Date();
+        let ileMinelo = czas - poczatek;
+        let procent = parseFloat(ileMinelo / miesiac) * 100
+        diw.innerHTML = (procent.toFixed(6) + "%")
+    }, 4)
+    } else {
+        let divInfo = document.getElementById("info");
+        let nastepnyRok;
+        if (data.getMonth() < 10) nastepnyRok = data.getFullYear();
+        else nastepnyRok = data.getFullYear() + 1;
+        const nastepnyNNN = new Date(`11/01/${nastepnyRok}`);
+        const ileDoNastepnegoNNN = Math.ceil(parseFloat((nastepnyNNN - data) / 1000 / 60 / 60 / 24));
+        info.innerHTML = (`
+        <p>Licznik nieczynny.</p>
+        <p>Zapraszamy na kolejny No Nut November, który rozpocznie się za <b>${ileDoNastepnegoNNN}</b> dni</p
+        `)
+    }
+    
+    
+</script>

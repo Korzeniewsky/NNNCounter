@@ -1,0 +1,51 @@
+@mixin wymiary ($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+$fontsize: 40px;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: beige;
+    margin: 0;
+    padding: 0;
+}
+
+#Wrapper {
+    @include wymiary(100vw, 100vh);
+    @include flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#info {
+    @include wymiary(600px, auto);
+    @include flex;
+    flex-direction: column;
+    position: absolute;
+    font-size: $fontsize;
+    text-align: center;
+}
+
+img {
+    @include wymiary(600px, auto);
+    opacity: 0.3;
+
+}
+
+#procent {
+    font-weight: bold;
+    font-size: 2 * $fontsize;
+
+}
